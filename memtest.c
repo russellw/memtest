@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define version "1"
+
 static void help(void) { puts("Usage: memtest <gigabytes>"); }
 
 int main(int argc, char **argv) {
