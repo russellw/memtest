@@ -11,6 +11,21 @@ int main(int argc, char **argv) {
     help();
     return 1;
   }
+  char *s = argv[1];
+  if (*s == '-') {
+    while (*s == '-')
+      ++s;
+    switch (*s) {
+    case 'V':
+    case 'v':
+      puts("memtest version " version);
+      return 0;
+    default:
+      help();
+      return 0;
+    }
+  }
+
   size_t n = atof(argv[1]) * (1 << 30);
   if (!n) {
     help();
@@ -25,7 +40,7 @@ int main(int argc, char **argv) {
 
   memset(p, 1, n);
   size_t a = 0;
-  for (size_t i = 0; i < n; i++)
+  for (size_t i = 0; i != n; ++i)
     a += p[i];
   if (a != n) {
     puts("error");
