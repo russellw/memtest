@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 static void help(void) { puts("Usage: memtest <gigabytes>"); }
 
